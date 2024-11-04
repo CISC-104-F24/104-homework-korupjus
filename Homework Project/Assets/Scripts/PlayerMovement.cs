@@ -17,13 +17,13 @@ public class PlayerMovement : MonoBehaviour
     Vector3 rightVector = Vector3.right;
     Vector3 movementDirection = Vector3.zero;
     Vector3 upVector = Vector3.up;
-   
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -35,10 +35,10 @@ public class PlayerMovement : MonoBehaviour
         movementDirection = movementDirection.normalized;
         bool isFowardPressed = false;
         isFowardPressed = Input.GetKey(KeyCode.W); //W
-        if (isFowardPressed )
+        if (isFowardPressed)
         {
             transform.position = transform.position + (originalMoveSpeed * sprintMoveSpeed * forwardVector * Time.deltaTime);
-           //Debug.Log("W is pressed");
+            //Debug.Log("W is pressed");
         }
 
         bool isBackwardPressed = false;
@@ -47,13 +47,13 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = transform.position + (originalMoveSpeed * sprintMoveSpeed * backwardVector * Time.deltaTime);
             //Debug.Log("S is pressed");
-        }   
-        
+        }
+
         bool isLeftPressed = false;
         isLeftPressed = Input.GetKey(KeyCode.A); //A
-        if (isLeftPressed )
+        if (isLeftPressed)
         {
-            transform.position = transform.position + (originalMoveSpeed * sprintMoveSpeed * leftVector *  Time.deltaTime);
+            transform.position = transform.position + (originalMoveSpeed * sprintMoveSpeed * leftVector * Time.deltaTime);
             //Debug.Log("A is pressed");
         }
 
@@ -69,10 +69,10 @@ public class PlayerMovement : MonoBehaviour
         isSpacePressed = Input.GetKeyDown(KeyCode.Space);
         if (isSpacePressed)
         {
-            myRb.AddForce(upVector * originalJumpPower * powerJump, ForceMode.Impulse); 
+            myRb.AddForce(upVector * originalJumpPower * powerJump, ForceMode.Impulse);
             //Debug.Log("Space is pressed");
         }
-        
+
         bool isLeftControlPressed = false;
         isLeftControlPressed = Input.GetKey(KeyCode.LeftControl);
         if (isLeftControlPressed)
@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
                 powerJump = 1; // part d option 5
             }
         }
-        
+
         bool isLeftShiftPressed = false;
         isLeftShiftPressed = Input.GetKey(KeyCode.LeftShift);
         if (isLeftShiftPressed)
@@ -116,6 +116,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-      
-    } 
+        bool isFPressed = false;
+        isFPressed = Input.GetKeyDown(KeyCode.F);
+        if (isFPressed)
+        {
+            Debug.Log("F is pressed");
+            transform.localRotation = Quaternion.identity;
+        }
+    }
 }
+
